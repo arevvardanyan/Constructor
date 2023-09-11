@@ -143,3 +143,48 @@ Baby.prototype.toPlay = function(){
 
 const newBaby = new Baby("John","4","ball");
 console.log(newBaby.toPlay())
+
+
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+// 6
+const Playlist = function(){
+    this.i = 0;
+    this.songs = []
+    
+}
+
+const Song = function(artistName,songName){
+    this.artistName = artistName;
+    this.songName = songName
+}
+
+Playlist.prototype.add = function(song){
+    this.songs.push(song)
+    return this
+}
+Playlist.prototype.play = function(){
+    return `${this.songs[this.i]["songName"]} starts to play`
+}
+
+Playlist.prototype.next = function(){
+    this.i ++
+    if(this.i > this.songs.length -1){
+        this.i = 0
+    }
+    return this
+}
+Playlist.prototype.stop = function(){
+    return `${this.songs[this.i]["songName"]} stops to play`
+}
+const playlist = new Playlist()
+const windOfChange = new Song("scorpions","Wind Of Change")
+const showMustGoOn = new Song("Qween","Show Must Go On");
+
+playlist.add(windOfChange);
+playlist.add(showMustGoOn);
+
+console.log(playlist.play())
+console.log(playlist.next())
+console.log(playlist.stop())
+console.log(playlist)
