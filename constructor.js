@@ -94,3 +94,34 @@ p1.poop()
 p1.eat(["banana","sdhgid","ahsgdyua"]);
 console.log(p1.toString())
 console.log(p1)
+
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// 4
+const Car = function(model,milesPerGallon){
+    this.model = model
+    this.milesPerGallon = milesPerGallon
+    this.tank = 0
+    this.odometer = 0
+}
+Car.prototype.fill = function(gallons){
+    this.tank += gallons;
+    return this
+};
+Car.prototype.drive = function(distance){
+
+    this.odometer += distance;
+    this.tank -= (distance * this.milesPerGallon);
+    if(this.tank < 0){
+        
+        this.tank = 0
+         
+        console.log(`I ran out of fuel at ${this.odometer}  miles!`)
+        return this
+    }
+    return this
+}
+
+const newCar = new Car("toyota",2)
+console.log(newCar.fill(20).drive(11).fill(40).drive(15));
+console.log(newCar)
