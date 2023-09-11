@@ -125,3 +125,21 @@ Car.prototype.drive = function(distance){
 const newCar = new Car("toyota",2)
 console.log(newCar.fill(20).drive(11).fill(40).drive(15));
 console.log(newCar)
+
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// 5
+const Baby = function(name,age,favoriteToy){
+    this.name = name;
+    this.age = age;
+    this.favoriteToy = favoriteToy
+    this.stomach = [];
+    
+}
+
+Baby.prototype.toPlay = function(){
+    return `Playing with ${this.favoriteToy}`
+}
+
+const newBaby = new Baby("John","4","ball");
+console.log(newBaby.toPlay())
